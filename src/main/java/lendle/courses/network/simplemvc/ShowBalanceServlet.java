@@ -37,9 +37,12 @@ public class ShowBalanceServlet extends HttpServlet {
          if(customer==null){
         }else if(customer.getBalance()<0){
             request.setAttribute("customer", customer);
-            RequestDispatcher rd=request.getRequestDispatcher("bank-account/NegativeBalance.jsp");
+            RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/bank-account/NegativeBalance.jsp");
             rd.forward(request, response);
         }else if(customer.getBalance()>10000){
+            request.setAttribute("customer", customer);
+            RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/bank-account/HighBalance.jsp");
+            rd.forward(request, response);
         }else{
         }
        
